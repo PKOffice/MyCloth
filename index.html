@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyCloth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-bg: #f8fafc;
+        --color-surface: #ffffff;
+        --color-accent: #1e293b;
+        --color-text-main: #0f172a;
+        --color-text-dim: #64748b;
+        --color-border: #e2e8f0;
+        --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      body.theme-dark {
+        --color-bg: #0a0b0d;
+        --color-surface: #12141a;
+        --color-accent: #f8fafc;
+        --color-text-main: #f8fafc;
+        --color-text-dim: #94a3b8;
+        --color-border: rgba(255, 255, 255, 0.05);
+        --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      #root:empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: var(--color-bg);
+      }
+
+      #root:empty::after {
+        content: "MYCLOTH.";
+        font-family: 'Outfit', sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        letter-spacing: -0.05em;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.3; transform: scale(0.98); }
+      }
+
+      h1, h2, h3, h4, .font-heading {
+        font-family: 'Outfit', sans-serif;
+      }
+
+      .font-serif {
+        font-family: 'Cormorant Garamond', serif;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 5px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: var(--color-bg);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--color-accent);
+      }
+
+      .btn-premium {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        background-color: var(--color-accent);
+        color: white;
+      }
+
+      .glass-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-premium);
+      }
+      
+      .theme-transition {
+        transition: all 0.5s ease;
+      }
+    </style>
+    <script>
+      // Shim for process.env to prevent ReferenceErrors in browser
+      window.process = window.process || { env: { API_KEY: '' } };
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@1.3.0",
+    "gsap": "https://esm.sh/gsap@3.12.5",
+    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+    "firebase/app": "https://esm.sh/firebase@10.8.0/app",
+    "firebase/auth": "https://esm.sh/firebase@10.8.0/auth",
+    "firebase/firestore": "https://esm.sh/firebase@10.8.0/firestore",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "gsap/": "https://esm.sh/gsap@^3.14.2/",
+    "firebase/": "https://esm.sh/firebase@^12.7.0/",
+    "express": "https://esm.sh/express@^5.2.1",
+    "mongoose": "https://esm.sh/mongoose@^9.1.1",
+    "cors": "https://esm.sh/cors@^2.8.5",
+    "dotenv": "https://esm.sh/dotenv@^17.2.3"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Entry point for the application -->
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>
